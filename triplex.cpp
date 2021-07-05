@@ -1,18 +1,26 @@
 /* This is a comment */
 
 #include <iostream>
+#include <ctime>
+
 using namespace std;
 
-int main() {
+void PrintIntro(int Diff) {
 
-	cout << "You are a secret agent breaking into a secure server room." << endl;
+	cout << "\n\nLEVEL " << Diff;
+	cout << "\n\nYou are a secret agent breaking into a super secured data center." << endl;
 	cout << "You need to enter the correct codes to continue..." << endl;
 	cout << endl;
 	cout << endl;
-	
-	int CodeA = 3;
-	int CodeB = 2;
-	int CodeC = 1;
+
+}
+
+
+bool PlayGame(int Diff) {
+
+	int CodeA = rand() % Diff + Diff;
+	int CodeB = rand() % Diff + Diff;
+	int CodeC = rand() % Diff + Diff;
 
 	int CodeSum = CodeA + CodeB + CodeC;
 	int CodeProduct = CodeA * CodeB * CodeC;
@@ -33,8 +41,48 @@ int main() {
 	int GuessSum = GuessA + GuessB + GuessC;
 	int GuessProduct = GuessA * GuessB * GuessC;
 
+	if (CodeSum == GuessSum && CodeProduct == GuessProduct) {
+		cout << "\n \n Damn boi, you're on fire, you've got the file! Let's move on to the next one...";
+		cout << "\n\n+++++++++++++++++++++++++++++++++++++++++++++++++++++++";
 
-	return 0;
+		return true;
+	}
+	else {
+		cout << "\n \n Never mind, even legends have the bad days... Keep going!";
+		cout << "\n\n+++++++++++++++++++++++++++++++++++++++++++++++++++++++";
+
+		return false;
+	}
+
 }
 
 
+int main() {
+
+	int LevelDiff = 1;
+	const int MaxDiff = 10;
+
+	// Create new random sequence (new seed for rand) based on time of day
+	srand(time(NULL)); 
+
+	while (LevelDiff <= MaxDiff) {
+
+		PrintIntro(LevelDiff);
+
+		bool bLevelComplete = PlayGame(LevelDiff);
+
+		cin.clear(); // Clears any errors
+		cin.ignore(); // Discards the buffer
+
+		if (bLevelComplete){
+
+			++LevelDiff;
+
+		}
+
+	}
+
+	cout << "*** \n\nYou are a fucking legend, you've done it!! ***";
+
+	return 0;
+}
