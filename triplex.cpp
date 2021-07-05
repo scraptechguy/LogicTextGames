@@ -1,5 +1,3 @@
-/* This is a comment */
-
 #include <iostream>
 #include <ctime>
 
