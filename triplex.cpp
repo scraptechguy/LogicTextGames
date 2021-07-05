@@ -22,7 +22,19 @@ int main() {
 	cout << "+ And the codes multiply to give " << CodeProduct << endl;
 	cout << endl;
 
+	int GuessA;
+	int GuessB;
+	int GuessC;
+
+	cin >> GuessA;
+	cin >> GuessB;
+	cin >> GuessC;
+
+	int GuessSum = GuessA + GuessB + GuessC;
+	int GuessProduct = GuessA * GuessB * GuessC;
 
 
+	return 0;
+}
 
 
