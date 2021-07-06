@@ -21,3 +21,38 @@ int main() {
 		cout << "\nEnter the second number: ";
 		cin >> Num2;
 
+
+		if (Op == '+') {
+
+			Sol = Num1 + Num2;
+			cout << Num1 << Op << Num2 << " is " << Sol;
+			cout << endl;
+		}
+
+		if (Op == '-') {
+
+			Sol = Num1 - Num2;
+			cout << Num1 << Op << Num2 << " is " << Sol;
+			cout << endl;
+		}
+
+		if (Op == '*') {
+
+			Sol = Num1 * Num2;
+			cout << Num1 << Op << Num2 << " is " << Sol;
+			cout << endl;
+
+		}
+
+		if (Op == '/') {
+
+			Sol = Num1 / Num2;
+			cout << Num1 << Op << Num2 << " is " << Sol;
+			cout << endl;
+		}
+		cin.clear();
+		cin.ignore();
+	}
+	return 0;
+}
+
