@@ -6,3 +6,7 @@ int Num2;
 char Op;
 int Sol;
 
+
+int main() {
+
+	while (true) {
