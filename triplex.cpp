@@ -43,17 +43,7 @@ bool PlayGame(int Diff) {
 
 		return true;
 	}
-	/*
-	if (GuessA == 'help'){
-		cout << "One of the numbers is " << CodeA;
-		return false;
-	}
-
-	if (GuessA == 'dum') {
-		cout << "Don't tell anyone, but the code is " << CodeA << " " << CodeB << " " << CodeC;
-		return false;
-	}
-	*/
+	
 	else {
 		cout << "\n \n Never mind, even legends have the bad days... Keep going!";
 		cout << "\n\n The correct code was " << CodeA << " " << CodeB << " " << CodeC;
