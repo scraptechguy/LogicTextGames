@@ -22,3 +22,68 @@ int CodeSum = 1;
 int CodeProduct = 1;
 
 
+bool PlayGame(int Diff) {
+
+	if (bTopSecret) {
+		CodeA = rand() % Diff + 1; // + Diff
+		CodeB = rand() % Diff + 1;
+		CodeC = rand() % Diff + 1;
+
+		CodeSum = CodeA + CodeB + CodeC;
+		CodeProduct = CodeA * CodeB * CodeC;
+	}
+
+	cout << "\n\n+ There are 3 numbers in the code..." << endl;
+	cout << "+ The codes add-up to " << CodeSum << endl;
+	cout << "+ And the codes multiply to give " << CodeProduct << endl;
+	cout << endl;
+
+	int GuessA;
+	int GuessB;
+	int GuessC;
+
+	cin >> GuessA;
+	cin >> GuessB;
+	cin >> GuessC;
+
+	int GuessSum = GuessA + GuessB + GuessC;
+	int GuessProduct = GuessA * GuessB * GuessC;
+
+	list<string> PosResponses = {
+		"Damn boi, you're on fire, you've got the file! Let's move on to the next one...",
+		"Jeez, ain't they callin' you smartass? You've got the file! Let's move on to the next one...",
+		"Gosh man, it's really not rocket science for you, is it? You've got the file! Let's move one to the next one..."
+	};
+
+	if (CodeSum == GuessSum && CodeProduct == GuessProduct) {
+		cout << "\n\n Damn boi, you're on fire, you've got the file!Let's move on to the next one..."  ;
+		cout << "\n\n The correct code was " << CodeA << " " << CodeB << " " << CodeC;
+		cout << "\n\n+++++++++++++++++++++++++++++++++++++++++++++++++++++++";
+
+		bTopSecret = true;
+
+		return true;
+	}
+
+	else if (GuessA == 0 && GuessB == 0 && GuessC == 7){
+		cout << "\n\n*** TOP SECRET ***" << endl;
+		cout << "\nDon't tell anyone how you know, but the code is " << CodeA << " " << CodeB << " " << CodeC << endl;
+		cout << "\n+++++++++++++++++++++++++++++++++++++++++++++++++++++++";
+
+		bTopSecret = false;
+
+		return false;
+	}
+
+	else {
+		cout << "\n \n Never mind, even legends have the bad days... Keep going!";
+		cout << "\n\n The correct code was " << CodeA << " " << CodeB << " " << CodeC;
+		cout << "\n\n+++++++++++++++++++++++++++++++++++++++++++++++++++++++";
+
+		bTopSecret = true;
+
+		return false;
+	}
+
+}
+
