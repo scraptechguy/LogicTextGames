@@ -87,3 +87,36 @@ bool PlayGame(int Diff) {
 
 }
 
+
+
+int main() {
+
+	int LevelDiff = 1;
+	const int MaxDiff = 10;
+
+	// Create new random sequence (new seed for rand) based on time of day
+	srand(time(NULL)); 
+
+	PrintIntro(LevelDiff);
+
+	while (LevelDiff <= MaxDiff) {
+
+		cout << "\n\nLEVEL " << LevelDiff;
+
+		bool bLevelComplete = PlayGame(LevelDiff);
+
+		cin.clear(); // Clears any errors
+		cin.ignore(); // Discards the buffer
+
+		if (bLevelComplete){
+
+			++LevelDiff;
+
+		}
+
+	}
+
+	cout << "\n\n*** You are a fucking legend, you've done it!! ***\n\n";
+
+	return 0;
+}
